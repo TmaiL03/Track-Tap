@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dxdhp3ufdyysh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5qli"]
+bg_color = Color(0.035717644, 0.034900222, 0.22448474, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgp6g"]
+bg_color = Color(0.051800027, 0.051793374, 0.27488065, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
+bg_color = Color(0.24115604, 0.24115607, 0.24115595, 1)
+
+[node name="Control" type="Control" unique_id=1721274072]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2060353350]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TrackDisplay" type="VBoxContainer" parent="HBoxContainer" unique_id=214109290]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="LapCounterPanel" type="Panel" parent="HBoxContainer/TrackDisplay" unique_id=709158382]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+theme_override_styles/panel = SubResource("StyleBoxFlat_o5qli")
+
+[node name="TrackDisplayPanel" type="Panel" parent="HBoxContainer/TrackDisplay" unique_id=999458499]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+
+[node name="PlayerClicker" type="VBoxContainer" parent="HBoxContainer" unique_id=1177751925]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 0
+
+[node name="LapCounterPanel" type="Panel" parent="HBoxContainer/PlayerClicker" unique_id=1248669196]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+theme_override_styles/panel = SubResource("StyleBoxFlat_sgp6g")
+
+[node name="Panel" type="Panel" parent="HBoxContainer/PlayerClicker" unique_id=777909171]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+theme_override_styles/panel = SubResource("StyleBoxFlat_0wfyh")
