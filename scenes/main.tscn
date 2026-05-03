@@ -1,13 +1,26 @@
 [gd_scene format=3 uid="uid://dxdhp3ufdyysh"]
 
+[ext_resource type="Texture2D" uid="uid://dcnowlbtjpey" path="res://assets/icons/flag.svg" id="1_o5qli"]
+[ext_resource type="FontFile" uid="uid://brxw6t7l3m0sr" path="res://assets/fonts/STAINLESSBETA.TTF" id="2_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://d1384wuyuufbn" path="res://assets/icons/steeringWheel.svg" id="3_sugp2"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5qli"]
 bg_color = Color(0.035717644, 0.034900222, 0.22448474, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sugp2"]
+bg_color = Color(0.16924527, 0.1692453, 0.16924521, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgp6g"]
 bg_color = Color(0.051800027, 0.051793374, 0.27488065, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
 bg_color = Color(0.24115604, 0.24115607, 0.24115595, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbgi4"]
+bg_color = Color(0.30980393, 0.30980393, 0.30980393, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyhfs"]
+bg_color = Color(0.2123048, 0.21230483, 0.21230477, 1)
 
 [node name="Control" type="Control" unique_id=1721274072]
 layout_mode = 3
@@ -38,10 +51,43 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15
 theme_override_styles/panel = SubResource("StyleBoxFlat_o5qli")
 
+[node name="FlagStateIcon" type="TextureRect" parent="HBoxContainer/TrackDisplay/LapCounterPanel" unique_id=1926451472]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = -32.5
+offset_right = 81.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_o5qli")
+expand_mode = 1
+
+[node name="LapsCompletedTicker" type="Label" parent="HBoxContainer/TrackDisplay/LapCounterPanel" unique_id=1502572607]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 83.0
+offset_top = -19.5
+offset_right = -8.0
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_0wfyh")
+theme_override_font_sizes/font_size = 40
+text = "LAP 500 / 500"
+
 [node name="TrackDisplayPanel" type="Panel" parent="HBoxContainer/TrackDisplay" unique_id=999458499]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.85
+theme_override_styles/panel = SubResource("StyleBoxFlat_sugp2")
 
 [node name="PlayerClicker" type="VBoxContainer" parent="HBoxContainer" unique_id=1177751925]
 layout_mode = 2
@@ -49,15 +95,35 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_override_constants/separation = 0
 
-[node name="LapCounterPanel" type="Panel" parent="HBoxContainer/PlayerClicker" unique_id=1248669196]
+[node name="DriverNamePanel" type="Panel" parent="HBoxContainer/PlayerClicker" unique_id=1248669196]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15
 theme_override_styles/panel = SubResource("StyleBoxFlat_sgp6g")
 
-[node name="Panel" type="Panel" parent="HBoxContainer/PlayerClicker" unique_id=777909171]
+[node name="ClickablePanel" type="Panel" parent="HBoxContainer/PlayerClicker" unique_id=777909171]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.85
+size_flags_stretch_ratio = 0.43
 theme_override_styles/panel = SubResource("StyleBoxFlat_0wfyh")
+
+[node name="Button" type="Button" parent="HBoxContainer/PlayerClicker/ClickablePanel" unique_id=996794698]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3515625
+anchor_top = 0.08992806
+anchor_right = 0.6484375
+anchor_bottom = 0.91007197
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbgi4")
+icon = ExtResource("3_sugp2")
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="DetailPanel" type="Panel" parent="HBoxContainer/PlayerClicker" unique_id=772336174]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.42
+theme_override_styles/panel = SubResource("StyleBoxFlat_jyhfs")
